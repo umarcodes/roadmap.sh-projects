@@ -1,0 +1,128 @@
+:root {
+  --green: #3aa655;
+  --blue: #2f75b5;
+  --text: #222;
+  --border: #333;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f4f4f4;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+}
+
+.page {
+  width: 760px;
+  min-height: 972px;
+  margin: 12px auto;
+  background: #fff;
+  border: 2px solid var(--border);
+  padding: 52px 62px 56px 62px;
+}
+
+.top-line {
+  width: 83%;
+  border: 0;
+  border-top: 2px solid #333;
+  margin: 10px 0 18px 0;
+}
+
+h1 {
+  margin: 0 0 12px 0;
+  font-size: 30px;
+  font-weight: 400;
+  color: #222;
+}
+
+.role {
+  margin: 0 0 18px 0;
+  font-size: 18px;
+  color: var(--green);
+  font-weight: 400;
+}
+
+.contact,
+.skills-list,
+.desc,
+.dates,
+.achievements,
+.skills-used,
+.internet {
+  font-size: 15px;
+  line-height: 1.35;
+  margin: 0;
+}
+
+.section-title {
+  margin: 22px 0 8px 0;
+  color: var(--green);
+  font-size: 17px;
+  font-weight: 400;
+}
+
+.entry-title {
+  margin: 6px 0 2px 0;
+  color: var(--blue);
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.dates {
+  margin: 0 0 6px 0;
+}
+
+ul {
+  margin: 6px 0 8px 22px;
+  padding: 0;
+}
+
+li {
+  margin: 3px 0;
+  font-size: 15px;
+}
+
+.block {
+  margin-bottom: 14px;
+}
+
+.contact p {
+  margin: 0;
+}
+
+/* Link styling */
+a {
+  color: var(--blue);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--green);
+  text-decoration: underline;
+}
+
+a:focus {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+.internet a {
+  color: var(--blue);
+}
+
+.internet a:hover {
+  color: var(--green);
+}
+
+section {
+  margin-bottom: 16px;
+}
+
+article {
+  margin-bottom: 8px;
+}
