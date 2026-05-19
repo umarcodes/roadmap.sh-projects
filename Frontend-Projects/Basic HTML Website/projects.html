@@ -3,61 +3,79 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Projects page for a frontend developer portfolio." />
-  <meta name="robots" content="index, follow" />
   <title>Projects | Frontend Developer</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Projects page for a frontend developer portfolio." />
+  <meta name="keywords" content="frontend projects, portfolio, HTML, CSS, JavaScript, web development" />
+  <meta name="author" content="Portfolio" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Projects | Frontend Developer" />
+  <meta property="og:description" content="Projects page for a frontend developer portfolio." />
+  <meta property="og:url" content="" />
+  <meta property="og:image" content="" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Projects | Frontend Developer" />
+  <meta name="twitter:description" content="Projects page for a frontend developer portfolio." />
+  <meta name="twitter:image" content="" />
 </head>
 <body>
-  <header>
-    <div>
-      <span></span>
-      <span>your name</span>
+  <header class="navbar">
+    <div class="logo">
+      <span class="logo-icon"></span>
+      <span class="logo-text">your name</span>
     </div>
 
-    <nav>
-      <a href="index.html">Home</a> /
-      <a href="projects.html">Projects</a> /
-      <a href="articles.html">Articles</a> /
-      <a href="contact.html">Contact</a>
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="index.html" class="nav-link">Home</a> /
+      <a href="projects.html" class="nav-link">Projects</a> /
+      <a href="articles.html" class="nav-link">Articles</a> /
+      <a href="contact.html" class="nav-link">Contact</a>
     </nav>
   </header>
 
-  <main>
-    <section>
-      <h1>Projects</h1>
-      <p>A collection of frontend practice projects.</p>
+  <main class="main">
+    <section class="page-header">
+      <h1 class="page-title">Projects</h1>
+      <p class="page-subtitle">A collection of frontend practice projects.</p>
     </section>
 
-    <section>
-      <article>
-        <h2>HTML Only Portfolio</h2>
-        <p>A simple portfolio built using only HTML.</p>
+    <section class="projects-list">
+      <article class="project-card">
+        <h2 class="project-title">HTML Only Portfolio</h2>
+        <p class="project-desc">A simple portfolio built using only HTML.</p>
       </article>
 
-      <article>
-        <h2>Calculator</h2>
-        <p>A basic calculator interface project.</p>
+      <article class="project-card">
+        <h2 class="project-title">Calculator</h2>
+        <p class="project-desc">A basic calculator interface project.</p>
       </article>
 
-      <article>
-        <h2>Quiz App</h2>
-        <p>A quiz application layout with questions and answers.</p>
+      <article class="project-card">
+        <h2 class="project-title">Quiz App</h2>
+        <p class="project-desc">A quiz application layout with questions and answers.</p>
       </article>
 
-      <article>
-        <h2>Countdown Timer</h2>
-        <p>A countdown timer project for events or deadlines.</p>
+      <article class="project-card">
+        <h2 class="project-title">Countdown Timer</h2>
+        <p class="project-desc">A countdown timer project for events or deadlines.</p>
       </article>
 
-      <article>
-        <h2>Product Upcoming Page</h2>
-        <p>A landing page for an upcoming product launch.</p>
+      <article class="project-card">
+        <h2 class="project-title">Product Upcoming Page</h2>
+        <p class="project-desc">A landing page for an upcoming product launch.</p>
       </article>
     </section>
   </main>
 
-  <footer>
-    <p>© all rights reserved 2025</p>
+  <footer class="footer">
+    <p>&copy; all rights reserved 2025</p>
   </footer>
 </body>
 </html>

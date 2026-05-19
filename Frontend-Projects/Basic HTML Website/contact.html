@@ -3,58 +3,76 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Contact page for reaching out to the frontend developer." />
-  <meta name="robots" content="index, follow" />
   <title>Contact | Frontend Developer</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Contact page for reaching out to the frontend developer." />
+  <meta name="keywords" content="contact, frontend developer, hire, get in touch" />
+  <meta name="author" content="Portfolio" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Contact | Frontend Developer" />
+  <meta property="og:description" content="Contact page for reaching out to the frontend developer." />
+  <meta property="og:url" content="" />
+  <meta property="og:image" content="" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Contact | Frontend Developer" />
+  <meta name="twitter:description" content="Contact page for reaching out to the frontend developer." />
+  <meta name="twitter:image" content="" />
 </head>
 <body>
-  <header>
-    <div>
-      <span></span>
-      <span>your name</span>
+  <header class="navbar">
+    <div class="logo">
+      <span class="logo-icon"></span>
+      <span class="logo-text">your name</span>
     </div>
 
-    <nav>
-      <a href="index.html">Home</a> /
-      <a href="projects.html">Projects</a> /
-      <a href="articles.html">Articles</a> /
-      <a href="contact.html">Contact</a>
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="index.html" class="nav-link">Home</a> /
+      <a href="projects.html" class="nav-link">Projects</a> /
+      <a href="articles.html" class="nav-link">Articles</a> /
+      <a href="contact.html" class="nav-link">Contact</a>
     </nav>
   </header>
 
-  <main>
-    <section>
-      <h1>Contact</h1>
-      <p>Send a message using the form below.</p>
+  <main class="main">
+    <section class="contact-section">
+      <h1 class="page-title">Contact</h1>
+      <p class="page-subtitle">Send a message using the form below.</p>
 
-      <form action="#" method="post">
-        <p>
-          <label for="name">Name</label><br />
-          <input type="text" id="name" name="name" required />
-        </p>
+      <form class="contact-form" action="#" method="post">
+        <div class="form-group">
+          <label class="form-label" for="name">Name</label>
+          <input class="form-input" type="text" id="name" name="name" required />
+        </div>
 
-        <p>
-          <label for="email">Email</label><br />
-          <input type="email" id="email" name="email" required />
-        </p>
+        <div class="form-group">
+          <label class="form-label" for="email">Email</label>
+          <input class="form-input" type="email" id="email" name="email" required />
+        </div>
 
-        <p>
-          <label for="subject">Subject</label><br />
-          <input type="text" id="subject" name="subject" />
-        </p>
+        <div class="form-group">
+          <label class="form-label" for="subject">Subject</label>
+          <input class="form-input" type="text" id="subject" name="subject" />
+        </div>
 
-        <p>
-          <label for="message">Message</label><br />
-          <textarea id="message" name="message" rows="6" required></textarea>
-        </p>
+        <div class="form-group">
+          <label class="form-label" for="message">Message</label>
+          <textarea class="form-textarea" id="message" name="message" rows="6" required></textarea>
+        </div>
 
-        <button type="submit">Send</button>
+        <button class="form-submit" type="submit">Send</button>
       </form>
     </section>
   </main>
 
-  <footer>
-    <p>© all rights reserved 2025</p>
+  <footer class="footer">
+    <p>&copy; all rights reserved 2025</p>
   </footer>
 </body>
 </html>

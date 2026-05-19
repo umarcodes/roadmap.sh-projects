@@ -3,23 +3,45 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Projects page for a frontend developer portfolio." />
-  <meta name="robots" content="index, follow" />
   <title>Projects | Frontend Developer</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Projects page for a frontend developer portfolio.">
+  <meta name="keywords" content="frontend projects, portfolio, HTML, CSS, JavaScript, web development">
+  <meta name="author" content="Portfolio">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="">
+
+  <!-- Open Graph (Facebook, LinkedIn) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Projects | Frontend Developer">
+  <meta property="og:description" content="Projects page for a frontend developer portfolio.">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Projects | Frontend Developer">
+  <meta name="twitter:description" content="Projects page for a frontend developer portfolio.">
+  <meta name="twitter:image" content="">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <div>
-      <span></span>
-      <span>your name</span>
-    </div>
-
-    <nav>
-      <a href="index.html">Home</a> /
-      <a href="projects.html">Projects</a> /
-      <a href="articles.html">Articles</a> /
-      <a href="contact.html">Contact</a>
+  <header class="navbar">
+    <a href="index.html" class="logo" aria-label="Home">
+      <span class="logo-icon">P</span>
+      <span>Portfolio</span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="projects.html" class="nav-link">Projects</a></li>
+        <li class="nav-item"><a href="articles.html" class="nav-link">Articles</a></li>
+        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
     </nav>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">Dark</button>
+  </header>
   </header>
 
   <main>
@@ -59,5 +81,25 @@
   <footer>
     <p>© all rights reserved 2025</p>
   </footer>
+
+  <script>
+    const html = document.documentElement;
+    const btn = document.getElementById('theme-toggle');
+    const systemDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+    function applyTheme(theme) {
+      html.dataset.theme = theme;
+      btn.textContent = theme === 'dark' ? 'Light' : 'Dark';
+    }
+
+    const saved = localStorage.getItem('theme');
+    applyTheme(saved ?? (systemDark.matches ? 'dark' : 'light'));
+
+    btn.addEventListener('click', () => {
+      const next = html.dataset.theme === 'dark' ? 'light' : 'dark';
+      localStorage.setItem('theme', next);
+      applyTheme(next);
+    });
+  </script>
 </body>
 </html>

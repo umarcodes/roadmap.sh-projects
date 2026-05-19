@@ -3,104 +3,126 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>Frontend Developer Portfolio</title>
-  <meta name="description" content="Frontend developer portfolio showcasing projects, work experience, education, and reviews." />
-  <meta name="robots" content="index, follow" />
 
+  <!-- SEO -->
+  <meta name="description" content="Frontend developer portfolio showcasing projects, work experience, education, and reviews." />
+  <meta name="keywords" content="frontend developer, portfolio, HTML, CSS, JavaScript, web development" />
+  <meta name="author" content="Portfolio" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
   <meta property="og:title" content="Frontend Developer Portfolio" />
   <meta property="og:description" content="Frontend developer portfolio showcasing projects, work experience, education, and reviews." />
-  <meta property="og:type" content="website" />
+  <meta property="og:url" content="" />
+  <meta property="og:image" content="" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Frontend Developer Portfolio" />
+  <meta name="twitter:description" content="Frontend developer portfolio showcasing projects, work experience, education, and reviews." />
+  <meta name="twitter:image" content="" />
 </head>
 <body>
-  <header>
-    <div>
-      <span></span>
-      <span>your name</span>
+  <header class="navbar">
+    <div class="logo">
+      <span class="logo-icon"></span>
+      <span class="logo-text">your name</span>
     </div>
 
-    <nav>
-      <a href="#">Home</a> /
-      <a href="#">Projects</a> /
-      <a href="#">Articles</a> /
-      <a href="#">Contact</a>
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="index.html" class="nav-link">Home</a> /
+      <a href="projects.html" class="nav-link">Projects</a> /
+      <a href="articles.html" class="nav-link">Articles</a> /
+      <a href="contact.html" class="nav-link">Contact</a>
     </nav>
 
-    <section>
-      <h1>Frontend Developer</h1>
-      <p>html only with proper layout, no styling</p>
+    <section class="hero">
+      <h1 class="hero-title">Frontend Developer</h1>
+      <p class="hero-subtitle">html only with proper layout, no styling</p>
     </section>
   </header>
 
-  <main>
-    <section>
-      <article>
-        <h2>Projects</h2>
-        <ul>
-          <li>HTML Only Portfolio</li>
-          <li>Calculator</li>
-          <li>Quiz App</li>
-          <li>Countdown Timer</li>
-          <li>Product Upcoming Page</li>
+  <main class="main">
+    <section class="portfolio">
+      <article class="pane">
+        <h2 class="pane-title">Projects</h2>
+        <ul class="pane-list">
+          <li class="pane-item">HTML Only Portfolio</li>
+          <li class="pane-item">Calculator</li>
+          <li class="pane-item">Quiz App</li>
+          <li class="pane-item">Countdown Timer</li>
+          <li class="pane-item">Product Upcoming Page</li>
         </ul>
       </article>
 
-      <article>
-        <h2>Work Experience</h2>
+      <article class="pane">
+        <h2 class="pane-title">Work Experience</h2>
 
-        <div>
-          <h3>roadmap.sh</h3>
-          <p>Solved all the frontend projects</p>
-          <a href="#">Visit my Profile</a>
+        <div class="work-entry">
+          <h3 class="entry-title">roadmap.sh</h3>
+          <p class="entry-desc">Solved all the frontend projects</p>
+          <a href="#" class="entry-link">Visit my Profile</a>
         </div>
 
-        <div>
-          <h3>OpenSource Work</h3>
-          <p>Contributed to 50 opensource projects. Made my own projects with 200 GitHub Stars.</p>
-          <a href="#">Visit my GitHub Profile</a>
+        <div class="work-entry">
+          <h3 class="entry-title">OpenSource Work</h3>
+          <p class="entry-desc">Contributed to 50 opensource projects. Made my own projects with 200 GitHub Stars.</p>
+          <a href="#" class="entry-link">Visit my GitHub Profile</a>
         </div>
       </article>
 
-      <article>
-        <h2>Education</h2>
-        <p>Graduated with 3.76 out of 4 CGPA. Won Acme Hackathon. Organized 30 sessions.</p>
-        <p>Courses I took:</p>
-        <ul>
-          <li>Object Oriented Programming</li>
-          <li>Data Structures and Algorithms</li>
-          <li>Web Engineering</li>
-          <li>Artificial Intelligence</li>
-          <li>Human Computer Interaction</li>
-          <li>Computer Graphics</li>
-          <li>Database Management Systems</li>
-          <li>Distributed Database Systems</li>
-          <li>Discreet Mathematics</li>
+      <article class="pane">
+        <h2 class="pane-title">Education</h2>
+        <p class="pane-text">Graduated with 3.76 out of 4 CGPA. Won Acme Hackathon. Organized 30 sessions.</p>
+        <p class="pane-text">Courses I took:</p>
+        <ul class="courses">
+          <li class="course">Object Oriented Programming</li>
+          <li class="course">Data Structures and Algorithms</li>
+          <li class="course">Web Engineering</li>
+          <li class="course">Artificial Intelligence</li>
+          <li class="course">Human Computer Interaction</li>
+          <li class="course">Computer Graphics</li>
+          <li class="course">Database Management Systems</li>
+          <li class="course">Distributed Database Systems</li>
+          <li class="course">Discreet Mathematics</li>
         </ul>
       </article>
     </section>
 
-    <section>
-      <h2>Reviews from my Teachers</h2>
+    <section class="reviews">
+      <h2 class="reviews-title">Reviews from my Teachers</h2>
 
-      <article>
-        <p>John doe was a brilliant student; always stood out with his assignments.</p>
-        <p>Jane Doe<br />Assistant Professor</p>
+      <article class="review-card">
+        <p class="review-quote">John doe was a brilliant student; always stood out with his assignments.</p>
+        <div class="review-author">
+          <span class="review-name">Jane Doe</span>
+          <span class="review-role">Assistant Professor</span>
+        </div>
       </article>
 
-      <article>
-        <p>John doe was a brilliant student; always stood out with his assignments.</p>
-        <p>Jane Doe<br />Assistant Professor</p>
+      <article class="review-card">
+        <p class="review-quote">John doe was a brilliant student; always stood out with his assignments.</p>
+        <div class="review-author">
+          <span class="review-name">Jane Doe</span>
+          <span class="review-role">Assistant Professor</span>
+        </div>
       </article>
 
-      <article>
-        <p>John doe was a brilliant student; always stood out with his assignments.</p>
-        <p>Jane Doe<br />Assistant Professor</p>
+      <article class="review-card">
+        <p class="review-quote">John doe was a brilliant student; always stood out with his assignments.</p>
+        <div class="review-author">
+          <span class="review-name">Jane Doe</span>
+          <span class="review-role">Assistant Professor</span>
+        </div>
       </article>
     </section>
   </main>
 
-  <footer>
-    <p>© all rights reserved 2025</p>
+  <footer class="footer">
+    <p>&copy; all rights reserved 2025</p>
   </footer>
 </body>
 </html>
