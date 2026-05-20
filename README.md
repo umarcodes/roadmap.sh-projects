@@ -3,3 +3,5 @@ single-page-cv: https://roadmap.sh/projects/single-page-cv
 basic html website: https://roadmap.sh/projects/basic-html-website
 <br>
 portfolio website: https://roadmap.sh/projects/portfolio-website
+<br>
+changelog: https://roadmap.sh/projects/changelog-component
