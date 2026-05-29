@@ -1,0 +1,152 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: #f4f4f4;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 80px;
+}
+
+/* ── Datepicker wrapper ─────────────────────────────────────── */
+
+.datepicker {
+  position: relative;
+  width: 280px;
+}
+
+/* ── Input row ──────────────────────────────────────────────── */
+
+.input-row {
+  display: flex;
+  border: 2px solid #111;
+  background: #fff;
+}
+
+.date-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 10px 14px;
+  font-size: 15px;
+  font-family: inherit;
+  color: #aaa;
+  background: transparent;
+  cursor: default;
+}
+
+.cal-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  flex-shrink: 0;
+  border: none;
+  border-left: 2px solid #111;
+  background: transparent;
+  cursor: pointer;
+  color: #222;
+  transition: background 0.15s;
+}
+
+.cal-btn:hover {
+  background: #f0f0f0;
+}
+
+/* ── Calendar popup (absolutely positioned) ─────────────────── */
+
+.calendar {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  border: 2px solid #111;
+  border-top: none;
+}
+
+/* ── Calendar header ────────────────────────────────────────── */
+
+.cal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-bottom: 1px solid #ccc;
+}
+
+.month-label {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.nav {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 11px;
+  color: #333;
+  padding: 4px 6px;
+  line-height: 1;
+}
+
+.nav:hover {
+  color: #000;
+}
+
+/* ── Calendar grid ──────────────────────────────────────────── */
+
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  counter-reset: day;
+}
+
+.day:not(.empty) {
+  counter-increment: day;
+}
+
+.day:not(.empty)::before {
+  content: counter(day);
+}
+
+.day-name,
+.day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  font-size: 13px;
+  border: 1px solid #e8e8e8;
+}
+
+.day-name {
+  font-size: 12px;
+  color: #555;
+  background: #fafafa;
+  border-color: #ddd;
+}
+
+.day {
+  cursor: pointer;
+  color: #222;
+}
+
+.day:not(.empty):hover {
+  background: #111;
+  color: #fff;
+}
+
+.day.empty {
+  cursor: default;
+  background: #fafafa;
+}

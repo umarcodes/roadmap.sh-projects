@@ -13,6 +13,7 @@ A collection of frontend projects built while following the [roadmap.sh](https:/
 | [Personal Portfolio](Frontend-Projects/Personal%20Portfolio/) | Portfolio site with styled sections | [View challenge](https://roadmap.sh/projects/portfolio-website) |
 | [Changelog Component](Frontend-Projects/Changelog-Component/) | Styled changelog UI component | [View challenge](https://roadmap.sh/projects/changelog-component) |
 | [Testimonial Cards](Frontend-Projects/Testimonial-Cards/) | Responsive testimonial card layout | [View challenge](https://roadmap.sh/projects/testimonial-cards) |
+| [Datepicker UI](Frontend-Projects/Datepicker-UI/) | Datepicker UI using CSS Grid and counters | [View challenge](https://roadmap.sh/projects/datepicker-ui) |
 
 ---
 
