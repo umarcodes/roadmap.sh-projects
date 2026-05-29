@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="viewport" content="width=device-width">
+  <title>Testimonial Showcase</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <main class="showcase">
+
+    <figure class="testimonialCard">
+      <div class="bubble">
+        <blockquote>
+          <p>I have been solving all the project ideas on roadmap.sh and I am surprised how far I have come from where I started.</p>
+          <p>Highly recommended!</p>
+        </blockquote>
+      </div>
+      <figcaption class="author">
+        <img src="images/thinking.svg" alt="Portrait of Artem Jones" class="bubble-avatar" loading="lazy" decoding="async">
+        <div class="bubble-author-info">
+          <strong class="bubble-author-name">Artem Jones</strong>
+          <span class="author-role">Junior Frontend Developer</span>
+        </div>
+      </figcaption>
+    </figure>
+
+    <figure class="testimonial testimonial--bordered">
+      <blockquote>Since starting my career in 2021, I have only followed one resource, roadmap.sh, it truly helped me go from 0 to having a job and changing the financial trajectory of my family</blockquote>
+      <figcaption>
+        <img class="bordered-avatar" src="images/avatar-placeholder.svg" alt="" aria-hidden="true">
+        <div class="bordered-author-info">
+          <strong class="bordered-author-name">Artem Jones</strong>
+          <span class="author-title">Junior Frontend Developer</span>
+        </div>
+      </figcaption>
+    </figure>
+
+    <div class="split-image-testimonial">
+      <div class="split-image-testimonial-image-placeholder" aria-hidden="true">
+        <img src="images/image-placeholder.svg" alt="">
+      </div>
+      <figure class="split-image-testimonial-content">
+        <div class="split-image-testimonial-rating" aria-label="Rating: 5 out of 5 stars" data-stars="5"></div>
+        <figcaption class="split-image-testimonial-author">
+          <strong class="split-image-testimonial-name">Jackie Mackle</strong>
+          <span class="split-image-testimonial-role">Engineering Manager</span>
+        </figcaption>
+        <blockquote class="split-image-testimonial-quote">
+          <p>I find myself recommending roadmap.sh to all the internees or junior developers. It's a great way to skill up and grow in your career.</p>
+        </blockquote>
+      </figure>
+    </div>
+
+    <section class="testimonial-slider" aria-label="Testimonials">
+      <figure class="testimonial-slider-card">
+        <blockquote class="testimonial-slider-quote" id="js-quote" aria-live="polite"></blockquote>
+        <div class="testimonial-slider-controls">
+          <button class="testimonial-slider-arrow js-prev" aria-label="Previous testimonial">
+            <img src="images/arrow-left.svg" alt="">
+          </button>
+          <div class="testimonial-slider-nav" role="list">
+            <button class="testimonial-slider-thumb testimonial-slider-thumb--inactive" id="js-thumb-prev" role="listitem" aria-label="Previous author"></button>
+            <button class="testimonial-slider-thumb testimonial-slider-thumb--active" id="js-thumb-curr" role="listitem" aria-label="Current author"></button>
+            <button class="testimonial-slider-thumb testimonial-slider-thumb--inactive" id="js-thumb-next" role="listitem" aria-label="Next author"></button>
+          </div>
+          <button class="testimonial-slider-arrow js-next" aria-label="Next testimonial">
+            <img src="images/arrow-right.svg" alt="">
+          </button>
+        </div>
+        <figcaption class="testimonial-slider-author">
+          <cite class="testimonial-slider-name" id="js-author"></cite>
+        </figcaption>
+      </figure>
+    </section>
+
+  </main>
+
+  <script>
+    document.querySelectorAll('[data-stars]').forEach(el => {
+      const star = '<img src="images/star.svg" alt="" class="split-image-testimonial-star">';
+      el.innerHTML = star.repeat(+el.dataset.stars);
+    });
+
+    (function() {
+      const testimonials = [{
+        "quote": "roadmap.sh is an incredible resource. I was fortunate to discover it during my university days in 2018. Back then, it was just a single repository with three images. It's amazing to see how much impact it has had on millions of lives since then.",
+        "name": "Artem Jones",
+        "avatarSrc": "images/avatar-1.svg"
+      }, {
+        "quote": "Quote 2",
+        "name": "Author 2",
+        "avatarSrc": "images/avatar-2.svg"
+      }, {
+        "quote": "Quote 3",
+        "name": "Author 3",
+        "avatarSrc": "images/avatar-3.svg"
+      }];
+
+      const quoteEl = document.getElementById('js-quote');
+      const authorEl = document.getElementById('js-author');
+      const thumbPrev = document.getElementById('js-thumb-prev');
+      const thumbCurr = document.getElementById('js-thumb-curr');
+      const thumbNext = document.getElementById('js-thumb-next');
+
+      let current = 0;
+      const total = testimonials.length;
+
+      function idx(offset) {
+        return (current + offset + total) % total;
+      }
+
+      function render() {
+        [[thumbPrev, -1], [thumbCurr, 0], [thumbNext, 1]].forEach(([el, offset]) => {
+          el.innerHTML = `<img src="${testimonials[idx(offset)].avatarSrc}" alt="">`;
+        });
+        quoteEl.textContent = testimonials[current].quote;
+        authorEl.textContent = testimonials[current].name;
+      }
+
+      function navigate(dir) {
+        quoteEl.style.opacity = authorEl.style.opacity = '0';
+        setTimeout(() => {
+          current = idx(dir);
+          render();
+          quoteEl.style.opacity = authorEl.style.opacity = '1';
+        }, 150);
+      }
+
+      [['.js-prev', thumbPrev, -1], ['.js-next', thumbNext, 1]].forEach(([sel, thumb, dir]) => {
+        const handler = () => navigate(dir);
+        document.querySelector(sel).addEventListener('click', handler);
+        thumb.addEventListener('click', handler);
+      });
+
+      render();
+    })();
+  </script>
+</body>
+
+</html>
