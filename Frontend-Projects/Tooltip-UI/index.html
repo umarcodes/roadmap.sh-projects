@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Navbar</title>
+<style>
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+}
+nav {
+  background: #1f2937;
+  padding: 2rem;
+}
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 3rem;
+}
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+  display: inline-block;
+  padding: 0.5rem 0;
+}
+nav a:hover {
+  color: #93c5fd;
+}
+.tooltip {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  background: #111827;
+  color: #f9fafb;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  white-space: nowrap;
+  font-weight: 400;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-50%);
+}
+
+/* each modifier owns its full animation on hover */
+nav a:hover .tooltip--fade-up {
+  visibility: visible;
+  animation: fadeUp 0.5s ease forwards;
+}
+nav a:hover .tooltip--scale {
+  visibility: visible;
+  animation: scaleIn 0.5s ease forwards;
+}
+nav a:hover .tooltip--bounce {
+  visibility: visible;
+  animation: bounceIn 0.7s ease-out forwards;
+}
+
+@keyframes fadeUp {
+  0%   { opacity: 0; transform: translateX(-50%) translateY(30px); }
+  100% { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+@keyframes scaleIn {
+  0%   { opacity: 0; transform: translateX(-50%) scale(0) rotate(-15deg); }
+  100% { opacity: 1; transform: translateX(-50%) scale(1) rotate(0); }
+}
+
+@keyframes bounceIn {
+  0%   { opacity: 0; transform: translateX(-50%) translateY(40px); }
+  50%  { opacity: 1; transform: translateX(-50%) translateY(-20px); }
+  70%  { transform: translateX(-50%) translateY(10px); }
+  85%  { transform: translateX(-50%) translateY(-5px); }
+  100% { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+</style>
+</head>
+<body>
+<nav>
+  <ul>
+    <li><a href="#home">Home<span class="tooltip tooltip--fade-up">Go to homepage</span></a></li>
+    <li><a href="#projects">Projects<span class="tooltip tooltip--scale">View my projects</span></a></li>
+    <li><a href="#blog">Blog<span class="tooltip tooltip--bounce">Read my blog</span></a></li>
+  </ul>
+</nav>
+
+<script>
+  document.querySelectorAll('.tooltip').forEach(tooltip => {
+    const link = tooltip.closest('a');
+    link.addEventListener('mouseleave', () => {
+      tooltip.style.animation = 'none';
+      tooltip.offsetHeight;
+      tooltip.style.animation = '';
+    });
+  });
+</script>
+</body>
+</html>
