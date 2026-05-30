@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Grid Layout</title>
+  <style>
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 10px;
+      width: 900px;
+      height: 600px;
+      grid-template-areas:
+        "tall-left  top-mid   tall-right"
+        "tall-left  tall-mid  tall-right"
+        "small-left tall-mid  small-right";
+    }
+
+    .img-tall-left   { grid-area: tall-left; }
+    .img-small-left  { grid-area: small-left; }
+    .img-top-mid     { grid-area: top-mid; }
+    .img-tall-mid    { grid-area: tall-mid; }
+    .img-tall-right  { grid-area: tall-right; }
+    .img-small-right { grid-area: small-right; }
+
+    .gallery img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="gallery" id="gallery"></div>
+
+  <script>
+    const gallery = document.getElementById("gallery");
+
+    // Read declared dimensions and gap from the gallery element
+    const totalWidth  = gallery.offsetWidth;
+    const totalHeight = gallery.offsetHeight;
+    const gap         = parseInt(getComputedStyle(gallery).gap);
+    const cols        = 3;
+    const rows        = 3;
+
+    // Calculate single cell size
+    const cellW = Math.floor((totalWidth  - gap * (cols - 1)) / cols);
+    const cellH = Math.floor((totalHeight - gap * (rows - 1)) / rows);
+
+    const images = [
+      {
+        area: "tall-left",
+        className: "img-tall-left",
+        alt: "Tall left image",
+        colSpan: 1, rowSpan: 2
+      },
+      {
+        area: "small-left",
+        className: "img-small-left",
+        alt: "Small left image",
+        colSpan: 1, rowSpan: 1
+      },
+      {
+        area: "top-mid",
+        className: "img-top-mid",
+        alt: "Top middle image",
+        colSpan: 1, rowSpan: 1
+      },
+      {
+        area: "tall-mid",
+        className: "img-tall-mid",
+        alt: "Tall middle image",
+        colSpan: 1, rowSpan: 2
+      },
+      {
+        area: "tall-right",
+        className: "img-tall-right",
+        alt: "Tall right image",
+        colSpan: 1, rowSpan: 2
+      },
+      {
+        area: "small-right",
+        className: "img-small-right",
+        alt: "Small right image",
+        colSpan: 1, rowSpan: 1
+      }
+    ];
+
+    images.forEach(({ className, alt, colSpan, rowSpan }) => {
+      const w = cellW * colSpan + gap * (colSpan - 1);
+      const h = cellH * rowSpan + gap * (rowSpan - 1);
+
+      const img = document.createElement("img");
+      img.src     = `https://placehold.co/${w}x${h}/EEE/31343C?font=source-sans-pro&text=${encodeURIComponent(className.replace("img-", ""))}`;
+      img.alt     = alt;
+      img.className = className;
+      img.loading = "lazy";
+      gallery.appendChild(img);
+    });
+  </script>
+</body>
+</html>

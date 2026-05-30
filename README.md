@@ -15,6 +15,7 @@ A collection of frontend projects built while following the [roadmap.sh](https:/
 | [Testimonial Cards](Frontend-Projects/Testimonial-Cards/) | Responsive testimonial card layout | [View challenge](https://roadmap.sh/projects/testimonial-cards) |
 | [Datepicker UI](Frontend-Projects/Datepicker-UI/) | Datepicker UI using CSS Grid and counters | [View challenge](https://roadmap.sh/projects/datepicker-ui) |
 | [Accessible Form UI](Frontend-Projects/Accessible%20Form%20UI/) | Accessible registration form following WCAG 2.1 AA guidelines | [View challenge](https://roadmap.sh/projects/accessible-form-ui) |
+| [Image Grid Layout](Frontend-Projects/Image-Grid-Layout/) | Asymmetric photo gallery built with CSS Grid | [View challenge](https://roadmap.sh/projects/image-grid) |
 
 ---
 

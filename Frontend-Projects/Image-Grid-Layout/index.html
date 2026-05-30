@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Grid Layout</title>
+  <style>
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 10px;
+      width: 900px;
+      height: 600px;
+      grid-template-areas:
+        "tall-left  top-mid   tall-right"
+        "tall-left  tall-mid  tall-right"
+        "small-left tall-mid  small-right";
+    }
+
+    .img-tall-left   { grid-area: tall-left; }
+    .img-small-left  { grid-area: small-left; }
+    .img-top-mid     { grid-area: top-mid; }
+    .img-tall-mid    { grid-area: tall-mid; }
+    .img-tall-right  { grid-area: tall-right; }
+    .img-small-right { grid-area: small-right; }
+
+    .gallery img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .gallery{
+      width: 600px;
+      border:solid 5px black;
+      background-color:     #222;
+    }
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="gallery">
+    <img src="https://static.wikia.nocookie.net/simpsons/images/6/67/S34E19_Write_Off_This_Episode_-_Homer.png/revision/latest?cb=20260201075614"   alt="Tall left"   class="img-tall-left">
+    <img src="https://people.com/thmb/3f3C55TpStUF_NgmN1ttIU8B5xk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(599x0:601x2)/the-simpsons-marge-2-062525-d1d96c6fe81a459185e2713f1b79c98c.jpg"  alt="Small left"  class="img-small-left">
+    <img src="https://helloartsy.com/wp-content/uploads/kids/the-simpsons/how-to-draw-maggie-simpson/how-to-draw-maggie-simpson-step-9.jpg"     alt="Top mid"     class="img-top-mid">
+    <img src="https://static.wikia.nocookie.net/simpsons/images/2/2a/S35E14_Night_of_the_Living_Wage_-_Lisa.png/revision/latest?cb=20260201092206"    alt="Tall mid"    class="img-tall-mid">
+    <img src="https://static.wikia.nocookie.net/simpsons/images/0/0a/Profile_-_Bart_Simpson.png/revision/latest/thumbnail/width/360/height/450?cb=20250301184943"  alt="Tall right"  class="img-tall-right">
+    <img src="https://i.ytimg.com/vi/AxJqSyYWgug/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBJLgO7J4EynzvPxABY-Skwm3qABA" alt="Small right" class="img-small-right">
+  </div>
+
+</body>
+</html>
