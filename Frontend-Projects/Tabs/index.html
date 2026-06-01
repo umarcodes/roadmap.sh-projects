@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tabs</title>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: #f0f2f5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 24px;
+      }
+
+      .tabs-wrapper {
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+        width: 100%;
+        max-width: 640px;
+        overflow: hidden;
+      }
+
+      .tab-list {
+        display: flex;
+        border-bottom: 2px solid #e5e7eb;
+        background: #f9fafb;
+      }
+
+      .tab-btn {
+        flex: 1;
+        padding: 14px 16px;
+        border: none;
+        background: transparent;
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: #6b7280;
+        cursor: pointer;
+        position: relative;
+        transition: color 0.2s;
+      }
+
+      .tab-btn::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: #4f46e5;
+        transform: scaleX(0);
+        transition: transform 0.2s ease;
+      }
+
+      .tab-btn:hover {
+        color: #4f46e5;
+        background: #ede9fe22;
+      }
+
+      .tab-btn.active {
+        color: #4f46e5;
+      }
+
+      .tab-btn.active::after {
+        transform: scaleX(1);
+      }
+
+      .tab-content {
+        padding: 32px 28px;
+        display: grid;
+      }
+
+      .tab-panel {
+        grid-area: 1 / 1; /* all panels occupy the same cell so the tallest one sets the height */
+        visibility: hidden;
+        opacity: 0;
+      }
+
+      .tab-panel.active {
+        visibility: visible;
+        opacity: 1;
+        animation: fadeIn 0.25s ease;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(6px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .tab-panel h2 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #111827;
+        margin-bottom: 10px;
+      }
+
+      .tab-panel p {
+        font-size: 0.95rem;
+        color: #4b5563;
+        line-height: 1.7;
+      }
+
+      img-responsive {
+        max-width: 100%;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tabs-wrapper">
+      <div class="tab-list" role="tablist"></div>
+      <div class="tab-content">
+        <div class="tab-panel" role="tabpanel">
+          <p>First Tab content</p>
+          <img class="img-responsive" src="https://a1cf74336522e87f135f-2f21ace9a6cf0052456644b80fa06d4f.ssl.cf2.rackcdn.com/images/characters/large/2800/Homer-Simpson.The-Simpsons.webp"/>
+        </div>
+        <div class="tab-panel" role="tabpanel">
+          <p>Second Tab content</p>
+        </div>
+        <div class="tab-panel" role="tabpanel">
+          <p>Third Tab content</p>
+        </div>
+        <div class="tab-panel" role="tabpanel">
+          <p>Fourth Tab content</p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // update these to rename the tabs
+      const labels = ["First Tab", "Second Tab", "Third Tab", "Fourth Tab"];
+
+      const tabList = document.querySelector(".tab-list");
+      const panels = document.querySelectorAll(".tab-panel");
+
+      // build a button for each panel and wire them together
+      panels.forEach((panel, i) => {
+        const tabId = `tab-${i + 1}`; // prefixed so the ID is unique and descriptive; +1 so numbering starts at 1 not 0
+        const panelId = `panel-${i + 1}`; // same reason, and a different prefix so tab and panel IDs never collide
+
+        panel.id = panelId;
+        panel.setAttribute("aria-labelledby", tabId);
+
+        const btn = document.createElement("button");
+        btn.className = "tab-btn";
+        btn.id = tabId;
+        btn.setAttribute("role", "tab");
+        btn.setAttribute("aria-selected", "false");
+        btn.setAttribute("aria-controls", panelId);
+        btn.textContent = labels[i];
+        tabList.appendChild(btn);
+      });
+
+      const tabs = tabList.querySelectorAll(".tab-btn");
+
+      // deactivate everything, then make the clicked tab and its panel active
+      function activate(tab) {
+        [...tabs, ...panels].forEach((el) => el.classList.remove("active"));
+        tabs.forEach((t) => t.setAttribute("aria-selected", "false"));
+
+        tab.classList.add("active");
+        tab.setAttribute("aria-selected", "true");
+        document.getElementById(tab.getAttribute("aria-controls")).classList.add("active");
+      }
+
+      tabs.forEach((tab) => tab.addEventListener("click", () => activate(tab)));
+
+      activate(tabs[0]); // start with the first tab open
+    </script>
+  </body>
+</html>

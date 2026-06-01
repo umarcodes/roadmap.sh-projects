@@ -17,7 +17,7 @@ A collection of frontend projects built while following the [roadmap.sh](https:/
 | [Accessible Form UI](Frontend-Projects/Accessible%20Form%20UI/) | Accessible registration form following WCAG 2.1 AA guidelines | [View challenge](https://roadmap.sh/projects/accessible-form-ui) |
 | [Image Grid Layout](Frontend-Projects/Image-Grid-Layout/) | Asymmetric photo gallery built with CSS Grid | [View challenge](https://roadmap.sh/projects/image-grid) |
 | [Tooltip UI](Frontend-Projects/Tooltip-UI/) | Interactive tooltip component with positioning | [View challenge](https://roadmap.sh/projects/tooltip-ui) |
-
+| [Tabs](Frontend-Projects/Tabs/) | Simple tabs component using HTML, CSS, and JavaScript. | [View challenge](https://roadmap.sh/projects/simple-tabs) |
 
 ---
 
