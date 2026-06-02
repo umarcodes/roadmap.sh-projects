@@ -18,7 +18,7 @@ A collection of frontend projects built while following the [roadmap.sh](https:/
 | [Image Grid Layout](Frontend-Projects/Image-Grid-Layout/) | Asymmetric photo gallery built with CSS Grid | [View challenge](https://roadmap.sh/projects/image-grid) |
 | [Tooltip UI](Frontend-Projects/Tooltip-UI/) | Interactive tooltip component with positioning | [View challenge](https://roadmap.sh/projects/tooltip-ui) |
 | [Tabs](Frontend-Projects/Tabs/) | Simple tabs component using HTML, CSS, and JavaScript. | [View challenge](https://roadmap.sh/projects/simple-tabs) |
-
+| [Cookie Consent](Frontend-Projects/Cookie-Consent/) | Cookie Consent popup based on basic DOM manipulation and event handling in JavaScript | [View challenge]([https://roadmap.sh/projects/simple-tabs](https://roadmap.sh/projects/cookie-consent)) |
 ---
 
 ## Stack
