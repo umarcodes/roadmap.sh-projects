@@ -1,0 +1,81 @@
+<div id="cookie-banner" class="cookie-banner">
+  <div class="cookie-content">
+    <p>We use cookies to improve your experience, analyse traffic, and personalise content.</p>
+    <div class="cookie-actions">
+      <button id="cookie-accept" data-consent="accept">Accept all</button>
+      <button id="cookie-reject" data-consent="reject">Reject all</button>
+    </div>
+  </div>
+</div>
+
+<style>
+  .cookie-banner {
+    position: fixed; bottom: 1rem; left: 50%; transform: translateX(-50%);
+    max-width: 460px; width: calc(100% - 2rem); background: #fff;
+    border: 1px solid #ddd; border-radius: 12px; padding: 1.25rem 1.5rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.12); z-index: 9999; font-family: system-ui, sans-serif;
+    
+    /* Animation Properties */
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+  }
+  
+  /* Class to trigger the smooth fade out */
+  .cookie-banner--hidden {
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, 10px); /* Slides down slightly as it fades */
+  }
+
+  .cookie-content p { font-size: 14px; color: #555; line-height: 1.6; margin: 0 0 1rem; }
+  .cookie-actions { display: flex; gap: 0.5rem; }
+  .cookie-actions button {
+    flex: 1; padding: 0.6rem; border-radius: 8px; cursor: pointer; font-size: 14px; border: 1px solid #ccc;
+    transition: background 0.2s ease;
+  }
+  #cookie-accept { background: #111; color: #fff; border-color: #111; }
+  #cookie-accept:hover { background: #333; }
+  #cookie-reject { background: #fff; color: #111; }
+  #cookie-reject:hover { background: #f5f5f5; }
+</style>
+
+<script>
+(() => {
+  const banner = document.getElementById('cookie-banner');
+  if (!banner) return;
+
+  let hasConsented = false;
+
+  try {
+    hasConsented = localStorage.getItem('cookieConsent');
+  } catch (error) {
+    console.warn('Storage unavailable. Consent will not persist.');
+  }
+
+  // Hide instantly on page load if user already interacted
+  if (hasConsented) {
+    banner.style.display = 'none';
+    return;
+  }
+
+  const consentButtons = banner.querySelectorAll('[data-consent]');
+  consentButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // 1. Trigger the CSS transition animation
+      banner.classList.add('cookie-banner--hidden');
+
+      try {
+        localStorage.setItem('cookieConsent', button.dataset.consent);
+      } catch (error) {
+        /* Storage failure fallback */
+      }
+
+      // 2. Completely remove element from display after animation finishes (300ms)
+      setTimeout(() => {
+        banner.style.display = 'none';
+      }, 300);
+    });
+  });
+})();
+</script>
