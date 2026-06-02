@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Counter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+            background-color: #f4f4f9;
+        }
+        .input-container {
+            max-width: 400px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+        .textarea-wrapper {
+            position: relative;
+        }
+        textarea {
+            width: 100%;
+            min-height: 90px;
+            padding: 10px;
+            padding-bottom: 28px;
+            font-family: inherit;
+            font-size: 16px;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            outline: none;
+            resize: vertical;
+            transition: border-color 0.2s;
+        }
+        textarea:focus {
+            border-color: #4a90e2;
+        }
+        textarea.limit-reached,
+        textarea.limit-reached:focus {
+            border-color: #d0021b;
+        }
+        .counter-text {
+            position: absolute;
+            bottom: 8px;
+            right: 10px;
+            font-size: 12px;
+            color: #000;
+          font-weight:700;
+            pointer-events: none;
+        }
+        .counter-text.limit-reached {
+            color: #d0021b;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="input-container">
+    <label for="limited-input">Your Input:</label>
+    <div class="textarea-wrapper">
+        <textarea id="limited-input" maxlength="250" placeholder="Start typing..."></textarea>
+        <div class="counter-text" id="counter">0/250</div>
+    </div>
+</div>
+<script>
+    const inputField = document.getElementById('limited-input');
+    const counterText = document.getElementById('counter');
+    const maxLength = 250;
+
+    function updateCounter() {
+        const currentLength = inputField.value.length;
+        counterText.textContent = currentLength + '/' + maxLength;
+        const atLimit = currentLength >= maxLength;
+        counterText.classList.toggle('limit-reached', atLimit);
+        inputField.classList.toggle('limit-reached', atLimit);
+    }
+
+    inputField.addEventListener('input', updateCounter);
+    updateCounter(); // sync on load
+</script>
+</body>
+</html>
