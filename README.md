@@ -21,6 +21,8 @@ A collection of frontend projects built while following the [roadmap.sh](https:/
 | [Cookie Consent](Frontend-Projects/Cookie-Consent/) | Cookie Consent popup based on basic DOM manipulation and event handling in JavaScript | [View challenge](https://roadmap.sh/projects/cookie-consent) |
 | [Restricted Textarea](Frontend-Projects/Restricted-Textarea/) | Textarea with a character limit and a live character count | [View challenge](https://roadmap.sh/projects/restricted-textarea) |
 | [Accordion](Frontend-Projects/Accordion/) | Accordion component that displays a list of questions or headings. | [View challenge](https://roadmap.sh/projects/accordion) |
+| [Age-Calculator](Frontend-Projects/Age-Calculator/) | Age Calculator using custom js-datepicker and luxon library| [View challenge](https://roadmap.sh/projects/age-calculator) |
+
 ---
 
 ## Stack

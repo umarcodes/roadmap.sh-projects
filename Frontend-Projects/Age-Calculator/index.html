@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/js-datepicker@5/dist/datepicker.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        form {
+            margin-bottom: 20px;
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Age Calculator</h1>
+    <form id="age-form">
+  <input type="text" id="my-input" placeholder="Select your birth date" required readonly>
+  <button type="submit">Calculate Age</button>
+</form>
+
+<div id="result"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/js-datepicker@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3/build/global/luxon.min.js"></script>
+    <script src="./script.js"></script>
+</body>
+</html>
